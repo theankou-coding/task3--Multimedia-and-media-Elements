@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My First Webpage</title>
+    <style>
+        /* Simple styling for media control buttons */
+        .controls {
+            margin-top: 10px;
+        }
+
+        .controls button {
+            padding: 5px 10px;
+            margin: 5px;
+        }
+
+        .volume-slider {
+            width: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Section with embedded YouTube video and audio -->
+    <section>
+        <h2>Related Media</h2>
+
+        <!-- Embedding a video with custom controls -->
+        <h3>Favorite Hobby Video</h3>
+        <video id="myVideo" width="560" height="315" controls>
+            <source src="video-file.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="controls">
+            <button onclick="playVideo()">Play</button>
+            <button onclick="pauseVideo()">Pause</button>
+            <label for="videoVolume">Volume:</label>
+            <input type="range" id="videoVolume" class="volume-slider" min="0" max="1" step="0.1"
+                onchange="setVideoVolume()">
+        </div>
+
+        <!-- Embedding an audio file with custom controls -->
+        <h3>Listen to This Audio</h3>
+        <audio id="myAudio" controls>
+            <source src="audio-file.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+        <div class="controls">
+            <button onclick="playAudio()">Play</button>
+            <button onclick="pauseAudio()">Pause</button>
+            <label for="audioVolume">Volume:</label>
+            <input type="range" id="audioVolume" class="volume-slider" min="0" max="1" step="0.1"
+                onchange="setAudioVolume()">
+        </div>
+    </section>
+
+    <script>
+        // Video controls
+        const video = document.getElementById("myVideo");
+
+        function playVideo() {
+            video.play();
+        }
+
+        function pauseVideo() {
+            video.pause();
+        }
+
+        function setVideoVolume() {
+            const volume = document.getElementById("videoVolume").value;
+            video.volume = volume;
+        }
+
+        // Audio controls
+        const audio = document.getElementById("myAudio");
+
+        function playAudio() {
+            audio.play();
+        }
+
+        function pauseAudio() {
+            audio.pause();
+        }
+
+        function setAudioVolume() {
+            const volume = document.getElementById("audioVolume").value;
+            audio.volume = volume;
+        }
+    </script>
+</body>
+
+</html>
